@@ -5,13 +5,12 @@
 // +----------------------------------------------------------------------
 // | PHP交流群: 763822524
 // +----------------------------------------------------------------------
-// | 开源协议  https://mit-license.org 
+// | 开源协议  https://mit-license.org
 // +----------------------------------------------------------------------
 // | github开源项目：https://github.com/zhongshaofa/EasyAdmin
 // +----------------------------------------------------------------------
 
 namespace app\admin\controller;
-
 
 use app\admin\model\SystemAdmin;
 use app\common\controller\AdminController;
@@ -22,14 +21,11 @@ use think\facade\Env;
  * Class Login
  * @package app\admin\controller
  */
-class Login extends AdminController
-{
-
+class Login extends AdminController {
     /**
      * 初始化方法
      */
-    public function initialize()
-    {
+    public function initialize() {
         parent::initialize();
         $action = $this->request->action();
         if (!empty(session('admin')) && !in_array($action, ['out'])) {
@@ -43,14 +39,13 @@ class Login extends AdminController
      * @return string
      * @throws \Exception
      */
-    public function index()
-    {
+    public function index() {
         $captcha = Env::get('easyadmin.captcha', 1);
         if ($this->request->isPost()) {
             $post = $this->request->post();
             $rule = [
-                'username|用户名'      => 'require',
-                'password|密码'       => 'require',
+                'username|用户名' => 'require',
+                'password|密码' => 'require',
                 'keep_login|是否保持登录' => 'require',
             ];
             $captcha == 1 && $rule['captcha|验证码'] = 'require|captcha';
@@ -66,6 +61,7 @@ class Login extends AdminController
                 $this->error('账号已被禁用');
             }
             $admin->login_num += 1;
+            $admin->login_time = time();
             $admin->save();
             $admin = $admin->toArray();
             unset($admin['password']);
@@ -74,7 +70,6 @@ class Login extends AdminController
             $this->success('登录成功');
         }
         $this->assign('captcha', $captcha);
-        $this->assign('demo', $this->isDemo);
         return $this->fetch();
     }
 
@@ -82,8 +77,7 @@ class Login extends AdminController
      * 用户退出
      * @return mixed
      */
-    public function out()
-    {
+    public function out() {
         session('admin', null);
         $this->success('退出登录成功');
     }
@@ -92,8 +86,7 @@ class Login extends AdminController
      * 验证码
      * @return \think\Response
      */
-    public function captcha()
-    {
+    public function captcha() {
         return Captcha::create();
     }
 }

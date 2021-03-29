@@ -408,7 +408,7 @@ EOT;
 <html>
 <head>
     <meta charset="utf-8">
-    <title>安装EasyAdmin后台程序</title>
+    <title>安装DS后台程序</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -417,12 +417,10 @@ EOT;
 </head>
 <body>
 <h1><img src="static/common/images/logo-1.png"></h1>
-<h2>安装EasyAdmin后台系统</h2>
+<h2>安装DS后台程序</h2>
 <div class="content">
     <p class="desc">
-        使用过程中遇到任何问题可参考
-        <a href="http://easyadmin.99php.cn/docs" target="_blank">文档教程</a>
-        <a href="https://jq.qq.com/?_wv=1027&k=5IHJawE">QQ交流群</a>
+        使用过程中遇到任何问题,可联系sdx0629@163.com
     </p>
     <form class="layui-form layui-form-pane" action="">
         <?php if ($errorInfo): ?>
@@ -434,7 +432,7 @@ EOT;
             <div class="layui-form-item">
                 <label class="layui-form-label">数据库地址</label>
                 <div class="layui-input-block">
-                    <input class="layui-input" name="hostname" autocomplete="off" lay-verify="required" lay-reqtext="请输入数据库地址" placeholder="请输入数据库地址" value="host.docker.internal">
+                    <input class="layui-input" name="hostname" autocomplete="off" lay-verify="required" lay-reqtext="请输入数据库地址" placeholder="请输入数据库地址" value="localhost">
                 </div>
             </div>
 
@@ -448,14 +446,14 @@ EOT;
             <div class="layui-form-item">
                 <label class="layui-form-label">数据库名称</label>
                 <div class="layui-input-block">
-                    <input class="layui-input" name="database" autocomplete="off" lay-verify="required" lay-reqtext="请输入数据库名称" placeholder="请输入数据库名称" value="easyadmin">
+                    <input class="layui-input" name="database" autocomplete="off" lay-verify="required" lay-reqtext="请输入数据库名称" placeholder="请输入数据库名称" value="ds_db">
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <label class="layui-form-label">数据表前缀</label>
                 <div class="layui-input-block">
-                    <input class="layui-input" name="prefix" autocomplete="off" lay-verify="required" lay-reqtext="请输入数据表前缀" placeholder="请输入数据表前缀" value="ea_">
+                    <input class="layui-input" name="prefix" autocomplete="off" lay-verify="required" lay-reqtext="请输入数据表前缀" placeholder="请输入数据表前缀" value="ds_">
                 </div>
             </div>
 
@@ -485,7 +483,7 @@ EOT;
             <div class="layui-form-item">
                 <label class="layui-form-label">后台的地址</label>
                 <div class="layui-input-block">
-                    <input class="layui-input" id="admin_url" name="admin_url" autocomplete="off" lay-verify="required" lay-reqtext="请输入后台的地址" placeholder="为了后台安全，不建议将后台路径设置为admin" value="admin">
+                    <input class="layui-input" id="admin_url" name="admin_url" autocomplete="off" lay-verify="required" lay-reqtext="请输入后台的地址" placeholder="为了后台安全，不建议将后台路径设置为admin" value="manage">
                     <span class="tips">后台登录地址： <?php echo $currentHost; ?><span id="admin_name">admin</span></span>
                 </div>
             </div>
@@ -493,7 +491,7 @@ EOT;
             <div class="layui-form-item">
                 <label class="layui-form-label">管理员账号</label>
                 <div class="layui-input-block">
-                    <input class="layui-input" name="username" autocomplete="off" lay-verify="required" lay-reqtext="请输入管理员账号" placeholder="请输入管理员账号" value="admin">
+                    <input class="layui-input" name="username" autocomplete="off" lay-verify="required" lay-reqtext="请输入管理员账号" placeholder="请输入管理员账号" value="system">
                 </div>
             </div>
 

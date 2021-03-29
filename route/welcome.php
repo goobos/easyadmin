@@ -63,9 +63,5 @@ Route::view('/', 'welcome', [
             'name'        => '公众号&小程序模块',
             'description' => '待开发。。。',
         ],
-        [
-            'name'        => '插件管理模块',
-            'description' => '待开发。。。',
-        ],
     ],
 ]);
